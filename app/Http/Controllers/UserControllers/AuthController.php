@@ -57,8 +57,12 @@ class AuthController extends Controller
         $info->email = $request->email;
         $hashedpassword = Hash::make($request->password);
         $info->password =  $hashedpassword;
-        dd($info);
-
+        $info->phone = '+8801521394776';
+        $info->address = '+8801521394776';
+        $info->image = '+8801521394776';
+        // dd($info);
+        $info->save();
+        return redirect()->route('user.login.form')->with('info',"Account Created Successfully!!! Now Log In Into Your Newly Created Account!");
     }
 
 }
